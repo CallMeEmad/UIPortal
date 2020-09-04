@@ -1,0 +1,94 @@
+<div class="container" class="jumbotron" dir="rtl" align="center">
+ 
+	<ng-container *ngFor="let error of errorMessages ;let currentIndex  = index" > 
+		<div class="alert alert-danger alert-dismissible fade show">
+			<button type="button" class="close" data-dismiss="alert" (click)="FadeOutError(currentIndex)" >&times;</button>
+			{{error}}  
+		</div>
+	 </ng-container>
+	 
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					شماره کارت مبدا
+				</td>
+
+				<td colspan="2">
+					<input type="number" class="form-control" id="source_card_number" [(ngModel)]="this.creditCard.CreditCardInfo.CardNumber">
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td>
+					مبلغ انتقال
+				</td>
+
+				<td colspan="2">
+					<input type="number" class="form-control" id="amount" [(ngModel)]="this.creditCard.CreditCardInfo.Amount">
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td>
+					کد اعتبارسنجی (cvv2)
+				</td>
+
+				<td colspan="2">
+					<input type="number" class="form-control" id="cvv2" [(ngModel)]="this.creditCard.CreditCardInfo.CVV2">
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>
+					تاریخ انقضا
+				</td>
+				<td>
+					<input type="number" class="form-control" placeholder="ماه" id="month_expire_date" [(ngModel)]="this.creditCard.CreditCardInfo.ExpireMonth" >
+				</td>
+				<td>
+					<input type="number" class="form-control" placeholder="سال" id="year_expire_date" [(ngModel)]="this.creditCard.CreditCardInfo.ExpireYear">
+				</td>
+			</tr>
+
+
+
+
+			<tr>
+				<td>
+					شماره کارت مقصد
+
+				</td>
+				<td colspan="2">
+					<input type="number" class="form-control" id="destination_card_number" [(ngModel)]="this.creditCard.CreditCardInfo.DestinationCardNumber" >
+				</td>
+			</tr>
+
+
+		</tbody>
+	</table>
+
+	<br><br>
+	<button type="button" class="btn btn-primary btn-block" (click)="MoneyTransfer()">انتقال وجه</button>
+
+
+</div>
+
+
+<div class="jumbotron" align="right" dir="rtl">
+
+
+	<ul>
+		<li *ngFor="let message of messages">
+			{{message}}
+		</li>
+	</ul>
+
+
+
+</div>
